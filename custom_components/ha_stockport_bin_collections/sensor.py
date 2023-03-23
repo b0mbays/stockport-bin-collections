@@ -53,4 +53,4 @@ class BinCollectionSensor(Entity):
         next_bin_names = " & ".join([bin_day.name for bin_day in next_bins])
 
         # Format the state
-        self._state = f"Bins:\n{next_date.strftime('%A %d %B %Y')}: {next_bin_names}"
+        self._state = f"\n{next_date.strftime('%A %d %B %Y')}: {next_bin_names}"
