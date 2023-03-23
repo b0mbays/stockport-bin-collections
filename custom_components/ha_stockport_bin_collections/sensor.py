@@ -1,39 +1,42 @@
 import logging
 from datetime import timedelta
 from homeassistant.helpers.entity import Entity
+from homeassistant.util import Throttle
 from .bin_scraper import get_bin_collection_data
-from datetime import timedelta
-
-SCAN_INTERVAL = timedelta(hours=12)
 
 _LOGGER = logging.getLogger(__name__)
 
-DOMAIN = 'ha-stockport-bin-collections'
+SCAN_INTERVAL = timedelta(hours=12)
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     urn = config_entry.data["urn"]
-    async_add_entities([StockportBinCollectionSensor(urn)])
+    async_add_entities([BinCollectionSensor(urn)], True)
 
-class StockportBinCollectionSensor(Entity):
+class BinCollectionSensor(Entity):
     def __init__(self, urn):
-        self._urn = urn
+        self.urn = urn
         self._state = None
-        self.update()
+        self._attributes = {}
 
     @property
     def name(self):
-        return 'Stockport Bin Collections'
+        return "Bin Collection"
 
     @property
     def state(self):
         return self._state
 
     @property
-    def icon(self):
-        return 'mdi:trash-can-outline'
+    def extra_state_attributes(self):
+        return self._attributes
 
-    def update(self):
-        bin_data = get_bin_collection_data(self._urn)
+    @property
+    def icon(self):
+        return "mdi:trash-can"
+
+    @Throttle(SCAN_INTERVAL)
+    async def async_update(self):
+        bin_data = await self.hass.async_add_executor_job(get_bin_collection_data, self.urn)
         this_week = bin_data['this_week']
         future = bin_data['future']
 
