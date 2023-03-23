@@ -1,0 +1,11 @@
+{
+    "domain": "ha-stockport-bin-collections",
+    "name": "Stockport Bin Collections",
+    "documentation": "https://github.com/b0mbays/ha-stockport-bin-collections",
+    "dependencies": [],
+    "codeowners": ["@b0mbays"],
+    "requirements": ["beautifulsoup4==4.10.0", "requests==2.26.0"],
+    "version": "0.1.0",
+    "config_flow": true
+  }
+  

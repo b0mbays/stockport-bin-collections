@@ -1,0 +1,1 @@
+DOMAIN = "ha-stockport-bin-collections"
