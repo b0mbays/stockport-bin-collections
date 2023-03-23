@@ -40,17 +40,17 @@ class BinCollectionSensor(Entity):
         this_week = bin_data['this_week']
         future = bin_data['future']
 
-        # Format the data for display in Home Assistant
-        this_week_output = []
-        for date, bin_days in this_week.items():
-            this_week_output.append(date.strftime("%a %d %B %Y"))
-            for bin_day in bin_days:
-                this_week_output.append(f"{bin_day.name} due {bin_day.date.strftime('%a %d %B %Y')}")
+        # Combine this_week and future bin collections
+        all_collections = {**this_week, **future}
 
-        future_output = []
-        for date, bin_days in future.items():
-            future_output.append(date.strftime("%a %d %B %Y"))
-            for bin_day in bin_days:
-                future_output.append(f"{bin_day.name} due {bin_day.date.strftime('%a %d %B %Y')}")
+        # Get the next bin collection date
+        next_date = min(all_collections.keys())
 
-        self._state = '\n'.join(this_week_output + future_output)
+        # Get the bins for the next collection date
+        next_bins = all_collections[next_date]
+
+        # Format bin names
+        next_bin_names = " & ".join([bin_day.name for bin_day in next_bins])
+
+        # Format the state
+        self._state = f"Bins:\n{next_date.strftime('%A %d %B %Y')}: {next_bin_names}"
