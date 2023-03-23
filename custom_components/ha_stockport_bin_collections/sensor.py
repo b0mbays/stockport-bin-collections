@@ -1,7 +1,10 @@
 import logging
 from datetime import timedelta
 from homeassistant.helpers.entity import Entity
-from bin_scraper import get_bin_collection_data
+from .bin_scraper import get_bin_collection_data
+from datetime import timedelta
+
+SCAN_INTERVAL = timedelta(hours=12)
 
 _LOGGER = logging.getLogger(__name__)
 
