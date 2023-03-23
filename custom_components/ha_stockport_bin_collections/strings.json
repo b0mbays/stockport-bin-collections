@@ -1,0 +1,20 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "Stockport Bin Collection",
+          "description": "Please enter your unique ID for your bin collection. You can find this at: https://myaccount.stockport.gov.uk/address-finder/bin-collection",
+          "data": {
+            "urn": "Unique ID"
+          }
+        }
+      },
+      "error": {
+        "unknown": "Unknown error occurred"
+      },
+      "abort": {
+        "already_configured": "Stockport Bin Collection is already configured"
+      }
+    }
+  }
+  
