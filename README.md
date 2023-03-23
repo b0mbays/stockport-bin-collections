@@ -1,6 +1,6 @@
 # HA - Stockport Bin Collections
 
-A Home Assistant custom integration for displaying bin collection day and which bins need to go out based on your address. This integration scrapes the data from the Stockport bin collection website every 12 hours and will send the next bins to be put out to a new sensor.
+A Home Assistant custom integration for displaying bin collection day and which bins need to go out based on your address. This integration scrapes the data from the Stockport bin collection website every 12 hours and will fetch the next bins to go out.
 <br/><br/>
 
 <p align="center">
