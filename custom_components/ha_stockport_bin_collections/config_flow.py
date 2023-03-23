@@ -25,7 +25,7 @@ class HaStockportBinCollectionsConfigFlow(config_entries.ConfigFlow, domain=DOMA
             step_id="user",
             data_schema=vol.Schema({vol.Required("urn"): str}),
             errors=errors,
-            description_placeholders={"base_url": "https://myaccount.stockport.gov.uk/address-finder/bin-collection"},
+            description_placeholders={"url": "https://myaccount.stockport.gov.uk/address-finder/bin-collection"},
         )
 
     @callback
