@@ -13,13 +13,13 @@ A Home Assistant custom integration for displaying bin collection day and which 
 
 1. Go to the HACS panel in Home Assistant.
 2. Click on the three dots in the top right corner and choose "Custom repositories".
-3. Enter `b0mbays/ha-stockport-bin-collections` in the "Add custom repository" field, select "Integration" from the "Category" dropdown, and click on the "Add" button.
+3. Enter `b0mbays/stockport-bin-collections` in the "Add custom repository" field, select "Integration" from the "Category" dropdown, and click on the "Add" button.
 4. Once the custom repository is added, you can install the integration through HACS. You should see "My Bin Collection" in the "Integrations" tab. Click on "Install" to add it to your Home Assistant instance.
 
 ### Manual
 
 1. Clone this repository to your local machine.
-2. Copy the `custom_components/ha-stockport-bin-collections` directory to the `custom_components` directory in your Home Assistant configuration.
+2. Copy the `custom_components/stockport-bin-collections` directory to the `custom_components` directory in your Home Assistant configuration.
 
 ## Configuration
 
